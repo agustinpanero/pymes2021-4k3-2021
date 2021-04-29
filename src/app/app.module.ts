@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-import { InicioComponent } from './inicio/inicio.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 import { ArticulosFamiliaComponent } from './components/articulos-familia/articulos-familia.component';
 import { MockArticulosFamiliasService } from './services/mock-articulos-familias.service';
 
