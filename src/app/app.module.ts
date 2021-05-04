@@ -42,7 +42,6 @@ import { MockArticulosService } from "./services/mock-articulos.service";
     {
       provide: APP_BASE_HREF,
       useValue: "/",
-      providers: [MockArticulosService],
     }
   ]
 })
