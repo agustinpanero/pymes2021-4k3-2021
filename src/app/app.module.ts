@@ -11,7 +11,7 @@ import { MockArticulosFamiliasService } from "./services/mock-articulos-familias
 import { ArticulosFamiliasService } from "./services/articulos-familias.service";
 import { RouterModule } from "@angular/router";
 import { APP_BASE_HREF } from "@angular/common";
-import { MenuComponent } from './components/menu/menu/menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   imports: [
