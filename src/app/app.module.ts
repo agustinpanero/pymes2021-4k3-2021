@@ -11,6 +11,7 @@ import { MockArticulosFamiliasService } from "./services/mock-articulos-familias
 import { ArticulosFamiliasService } from "./services/articulos-familias.service";
 import { RouterModule } from "@angular/router";
 import { APP_BASE_HREF } from "@angular/common";
+import { MenuComponent } from './components/menu/menu/menu.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { APP_BASE_HREF } from "@angular/common";
     AppComponent,
     HelloComponent,
     InicioComponent,
-    ArticulosFamiliaComponent
+    ArticulosFamiliaComponent,
+    MenuComponent
   ],
   bootstrap: [AppComponent],
   providers: [
