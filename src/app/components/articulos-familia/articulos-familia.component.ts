@@ -3,8 +3,8 @@ import {
   ArticuloFamilia,
   ArticulosFamilias
 } from "../../models/articulo-familia";
-
 import { ArticulosFamiliasService } from "../../services/articulos-familias.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-articulos-familia",
@@ -14,7 +14,10 @@ import { ArticulosFamiliasService } from "../../services/articulos-familias.serv
 export class ArticulosFamiliaComponent implements OnInit {
   Titulo = "Articulos Familias";
   Items: ArticuloFamilia[];
-  constructor(private articulosFamiliasService: ArticulosFamiliasService) {}
+  constructor(
+    public formBuilder: FormBuilder,
+    private articulosFamiliasService: ArticulosFamiliasService
+  ) {}
 
   ngOnInit() {
     this.GetFamiliasArticulos();

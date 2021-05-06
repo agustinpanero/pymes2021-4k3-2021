@@ -14,6 +14,8 @@ import { APP_BASE_HREF } from "@angular/common";
 import { MenuComponent } from "./components/menu/menu.component";
 import { ArticulosComponent } from "./components/articulos/articulos.component";
 import { MockArticulosService } from "./services/mock-articulos.service";
+import { ReactiveFormsModule } from "@angular/forms";
+
 
 @NgModule({
   imports: [
@@ -25,8 +27,10 @@ import { MockArticulosService } from "./services/mock-articulos.service";
       { path: "inicio", component: InicioComponent },
       { path: "articulosfamilias", component: ArticulosFamiliaComponent },
       { path: "articulos", component: ArticulosComponent }
-    ])
+    ]),
+    ReactiveFormsModule,
   ],
+
   declarations: [
     AppComponent,
     HelloComponent,
