@@ -33,7 +33,8 @@
 </form>
 
 <!-- Tabla de resutados de busqueda y Paginador-->
-<div id="divTablaResultados">
+<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Items?.length > 0">
+
 
   <table class="table table-bordered table-striped">
     <thead>
@@ -88,14 +89,14 @@
 </div>
 
 <!--No se encontraron registros-->
-<div id="divMsjFormBusqueda" class="alert alert-info">
+<div id="divMsjFormBusqueda" class="alert alert-info" *ngIf="AccionABMC == 'L' && Items?.length== 0">
   <span class="fas fa-exclamation-sign"></span>{{Mensajes['SD']}}
   <!-- texto: No se encontraron registros -->
 </div>
 <!-- Registro en Alta,Modificacion o Consulta -->
-<form name='FormRegistro'>
+ <form name="FormRegistro" class="bg-light"  *ngIf="AccionABMC != 'L'">
 
-  <fieldset>
+   <fieldset [disabled]="AccionABMC==='C'">
     <!--campo nombre-->
     <div class="form-group row">
       <label class="col-form-label col-sm-2 offset-sm-2" for="Nombre">
@@ -179,18 +180,18 @@
 
   <!-- Botones Grabar, Cancelar/Volver' -->
   <div class="row justify-content-center">
-    <button type="button" class="btn btn-primary" (click)="Grabar()">
+    <button type="button" class="btn btn-primary" (click)="Grabar()"  *ngIf=" AccionABMC == 'A'  || AccionABMC == 'M'">
             <span class="fas fa-check"></span> Grabar
         </button>
     &nbsp;
     <button type="button" class="btn btn-warning" (click)="Volver()">
-            <span class="fas fa-undo"></span> Volver/Cancelar
+            <span class="fas fa-undo"></span> {{AccionABMC == 'A'  || AccionABMC == 'M' ? 'Cancelar' : 'Volver'}}
         </button>
   </div>
 
   <!--texto: Revisar los datos ingresados...-->
-  <div id="divMsjFormRegistro" class="row alert alert-danger">
-    <span class="fas fa-exclamation-sign"></span>{{Mensajes['RD']}}
-  </div>
+   <div id="divMsjFormRegistro" class="row alert alert-danger" *ngIf="false">
+        <span class="fas fa-exclamation-sign"></span>{{Mensajes['RD']}}
+    </div>
 
 </form>
