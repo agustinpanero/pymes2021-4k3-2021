@@ -16,6 +16,9 @@ import { ArticulosComponent } from './components/articulos/articulos.component';
 import { MockArticulosService } from './services/mock-articulos.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArticulosService } from './services/articulos.service';
+import {
+  NgbPaginationModule
+} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   imports: [
@@ -28,7 +31,8 @@ import { ArticulosService } from './services/articulos.service';
       { path: 'articulosfamilias', component: ArticulosFamiliaComponent },
       { path: 'articulos', component: ArticulosComponent }
     ]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbPaginationModule,
   ],
 
   declarations: [
