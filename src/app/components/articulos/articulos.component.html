@@ -46,7 +46,7 @@
         <th class="text-center">Familia</th>
         <th class="text-center">Activo</th>
         <th class="text-center text-nowrap">Acciones</th>
-        
+
 
       </tr>
     </thead>
@@ -69,8 +69,8 @@
                             title="{{item.Activo ? 'Desactivar':'Activar'}}" (click)="ActivarDesactivar(item)">
                         <span class="fas fa-{{item.Activo ? 'times':'check'}}"></span>
                     </button>
-      
-      </td>
+
+        </td>
       </tr>
     </tbody>
   </table>
@@ -81,7 +81,7 @@
         <span class="label label-default">Registros: {{RegistrosTotal}}</span>
       </div>
       <div class="col text-center">
-       <ngb-pagination [(page)]="Pagina" (pageChange)="Buscar()" [pageSize]="10" [maxSize]="10"
+        <ngb-pagination [(page)]="Pagina" (pageChange)="Buscar()" [pageSize]="10" [maxSize]="10"
           [collectionSize]="RegistrosTotal"></ngb-pagination>
       </div>
       <div class="col text-right">
@@ -108,7 +108,17 @@
                 Nombre <span class="text-danger">*</span>
             </label>
       <div class="col-sm-6">
-        <input type="text" class="form-control"   formControlName="Nombre"/>
+        <input type="text" class="form-control text-uppercase"   formControlName="Nombre" />
+        <span class="text-danger" *ngIf="FormRegistro.controls.Nombre.errors?.required">
+            Dato requerido.
+          </span>
+        <span class="text-danger" *ngIf="FormRegistro.controls.Nombre.errors?.minlength || FormRegistro.controls.Nombre.errors?.maxlength ">
+                Dato texto, 4 a 55 caracteres.
+              </span>
+
+
+
+
       </div>
     </div>
 
@@ -118,7 +128,16 @@
                 Precio <span class="text-danger">*</span>
             </label>
       <div class="col-sm-6">
-        <input type="text" class="form-control"   formControlName="Precio"/>
+        <input type="text" class="form-control text-uppercase"   formControlName="Precio" />
+        <span class="text-danger" *ngIf="FormRegistro.controls.Precio.errors?.required">
+                          Dato requerido.
+              </span>
+        <span class="text-danger" *ngIf="FormRegistro.controls.Precio.errors?.pattern">
+                    Dato numérico, 1 a 7 dígitos.
+ </span>
+
+
+
       </div>
     </div>
 
@@ -129,7 +148,17 @@
                 Stock <span class="text-danger">*</span>
             </label>
       <div class="col-sm-6">
-        <input type="text" class="form-control"   formControlName="Stock"/>
+
+        <input type="text" class="form-control text-uppercase"   formControlName="Stock" />
+        <span class="text-danger" *ngIf="FormRegistro.controls.Stock.errors?.required">
+                          Dato requerido.
+              </span>
+        <span class="text-danger" *ngIf="FormRegistro.controls.Stock.errors?.pattern">
+                    Dato numérico, 1 a 7 dígitos.
+ 
+
+                </span>
+
 
       </div>
     </div>
@@ -140,7 +169,16 @@
                 Codigo De Barra <span class="text-danger">*</span>
             </label>
       <div class="col-sm-6">
-        <input type="text" class="form-control"   formControlName="CodigoDeBarra"/>
+        <input type="text" class="form-control text-uppercase"   formControlName="CodigoDeBarra" />
+        <span class="text-danger" *ngIf="FormRegistro.controls.CodigoDeBarra.errors?.required">
+                          Dato requerido.
+              </span>
+        <span class="text-danger" *ngIf="FormRegistro.controls.CodigoDeBarra.errors?.pattern">
+                    Dato numérico, 1 a 7 dígitos.
+              </span>
+
+
+
       </div>
     </div>
 
@@ -164,7 +202,10 @@
                 Fecha de alta <span class="text-danger">*</span>
             </label>
       <div class="col-sm-6">
-        <input type="text" class="form-control"   formControlName="FechaAlta"/>
+        <input type="text" class="form-control text-uppercase"   formControlName="FechaAlta" />
+        <span class="text-danger" *ngIf="FormRegistro.controls.fechaalta.errors?.required">
+                          Dato requerido.
+              </span>
       </div>
     </div>
 

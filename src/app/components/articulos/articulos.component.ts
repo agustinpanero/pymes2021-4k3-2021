@@ -56,16 +56,16 @@ export class ArticulosComponent implements OnInit {
       Nombre: [null],
       Activo: [null]
     });
-    this.FormRegistro = this.formBuilder.group({
+        this.FormRegistro = this.formBuilder.group({
       IdArticulo: [null],
-      Nombre: [null],
-      Precio: [null],
-      Stock: [null],
-      CodigoDeBarra: [null],
-      IdArticuloFamilia: [null],
-      FechaAlta: [null],
+      Nombre: [null,[Validators.required, Validators.minLength(4), Validators.maxLength(55)]],
+      Precio: [null, [Validators.required,Validators.minLength(4), Validators.maxLength(55)]],
+      Stock: [null, [Validators.required, Validators.pattern("[0-9]{1,10}")]],
+      CodigoDeBarra: [null, [Validators.required, Validators.pattern("[0-9]{13}")]],
+      FechaAlta: [ null,  [ Validators.required ,Validators.minLength(4), Validators.maxLength(55)] ],
       Activo: [false]
     });
+
     this.GetFamiliasArticulos();
   }
   GetFamiliasArticulos() {
@@ -124,7 +124,11 @@ export class ArticulosComponent implements OnInit {
   // grabar tanto altas como modificaciones
  // grabar tanto altas como modificaciones
   Grabar() {
- 
+        // verificar que los validadores esten OK
+     if (this.FormRegistro.invalid) {
+      return;
+    }
+
     //hacemos una copia de los datos del formulario, para modificar la fecha y luego enviarlo al servidor
     const itemCopy = { ...this.FormRegistro.value };
  
