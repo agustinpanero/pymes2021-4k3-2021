@@ -19,6 +19,8 @@ import { ArticulosService } from './services/articulos.service';
 import {
   NgbPaginationModule
 } from "@ng-bootstrap/ng-bootstrap";
+import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
+
 
 @NgModule({
   imports: [
@@ -41,7 +43,8 @@ import {
     InicioComponent,
     ArticulosFamiliaComponent,
     MenuComponent,
-    ArticulosComponent
+    ArticulosComponent,
+    ModalDialogComponent
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -50,7 +53,7 @@ import {
     ArticulosService,
     {
       provide: APP_BASE_HREF,
-      useValue: '/'
+      useValue: '/',
     }
   ]
 })
