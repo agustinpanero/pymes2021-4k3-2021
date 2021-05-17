@@ -17,9 +17,10 @@ import { MockArticulosService } from './services/mock-articulos.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArticulosService } from './services/articulos.service';
 import {
-  NgbPaginationModule
+  NgbPaginationModule,   NgbModalModule,
 } from "@ng-bootstrap/ng-bootstrap";
 import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
+import { ModalDialogService } from './services/modal-dialog.service';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
     ]),
     ReactiveFormsModule,
     NgbPaginationModule,
+    NgbModalModule, 
   ],
 
   declarations: [
@@ -51,6 +53,7 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
     ArticulosFamiliasService,
     MockArticulosService,
     ArticulosService,
+    ModalDialogService,
     {
       provide: APP_BASE_HREF,
       useValue: '/',
