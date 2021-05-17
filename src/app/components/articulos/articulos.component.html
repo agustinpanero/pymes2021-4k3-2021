@@ -171,10 +171,10 @@
       <div class="col-sm-6">
         <input type="text" class="form-control text-uppercase"   formControlName="CodigoDeBarra" />
         <span class="text-danger" *ngIf="FormRegistro.controls.CodigoDeBarra.errors?.required">
-                          Dato requerido.
+               Dato requerido.
               </span>
         <span class="text-danger" *ngIf="FormRegistro.controls.CodigoDeBarra.errors?.pattern">
-                    Dato numérico, 1 a 7 dígitos.
+                    Dato numérico, 13 dígitos.
               </span>
 
 
@@ -203,9 +203,13 @@
             </label>
       <div class="col-sm-6">
         <input type="text" class="form-control text-uppercase"   formControlName="FechaAlta" />
-        <span class="text-danger" *ngIf="FormRegistro.controls.fechaalta.errors?.required">
+        <span class="text-danger" *ngIf="FormRegistro.controls.FechaAlta.errors?.required">
                           Dato requerido.
-              </span>
+       </span>
+        <span class="text-danger" *ngIf="FormRegistro.controls.FechaAlta.errors?.pattern">
+                    Dato fecha, formato dd/mm/aaaa.
+        </span>
+
       </div>
     </div>
 
@@ -234,7 +238,6 @@
   </div>
 
   <!--texto: Revisar los datos ingresados...-->
-  <div id="divMsjFormRegistro" class="row alert alert-danger" *ngIf="false">
-    <span class="fas fa-exclamation-sign"></span>{{Mensajes['RD']}}
+   <div id="divMsjFormRegistro" class="row alert alert-danger" *ngIf="FormRegistro.invalid">
+    <i class="fas fa-exclamation-sign"></i>{{Mensajes['RD']}}
   </div>
-</form>
